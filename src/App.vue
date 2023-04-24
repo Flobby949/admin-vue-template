@@ -12,5 +12,8 @@
       <p class="text-xl">测试 WindiCSS</p>
     </div>
     <button class="m-btn px-8 py-2 mt-2">按钮</button>
+    <el-icon size="32" class="text-sky-500">
+      <Edit />
+    </el-icon>
   </div>
 </template>
