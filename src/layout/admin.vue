@@ -1,3 +1,8 @@
+<script setup>
+const store = useAdminStore()
+const { sideWidth } = storeToRefs(store)
+</script>
+
 <template>
   <el-container>
     <el-header>
@@ -5,7 +10,7 @@
     </el-header>
 
     <el-container>
-      <el-aside>
+      <el-aside :style="{ width: sideWidth }">
         <side-menu />
       </el-aside>
 
@@ -16,3 +21,13 @@
     </el-container>
   </el-container>
 </template>
+
+<style scope>
+.el-main {
+  @apply w-full h-screen text-left;
+  padding: 0 !important;
+}
+.el-aside {
+  transition: all 0.2s;
+}
+</style>

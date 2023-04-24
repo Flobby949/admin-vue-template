@@ -1,7 +1,6 @@
 <script setup>
 const store = useAdminStore()
-const { adminInfo } = storeToRefs(store)
-
+const { adminInfo, sideWidth } = storeToRefs(store)
 const { handleLogout } = useLogout()
 const { formDrawerRef, form, rules, formRef, openRepasswordForm, onSubmit } = usePassword()
 </script>
@@ -9,13 +8,13 @@ const { formDrawerRef, form, rules, formRef, openRepasswordForm, onSubmit } = us
 <template>
   <div class="f-header v-center">
     <RouterLink to="/">
-      <div class="f-center transition-all duration-500" style="width: 220px">
-        <IEpElementPlus />
-        <span class="text-2xl">极客空间</span>
+      <div class="f-center text-[1.5rem] transition-all duration-500 w-[220px]">
+        <IEpElementPlus class="mr-3" />
+        <span v-show="sideWidth === '220px'">极客空间</span>
       </div>
     </RouterLink>
 
-    <div class="v-center">
+    <div class="icon v-center">
       <IEpFold />
     </div>
 
