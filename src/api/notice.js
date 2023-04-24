@@ -1,7 +1,7 @@
 import axios from '@/utils/axios'
 
-export function getNoticePage(page, limit, title) {
-  return axios.get(`/sys/notice/page?page=${page}&limit=${limit}&title=${title}`)
+export function getNoticePage(page, limit, params) {
+  return axios.get(`/sys/notice/page`, { params: { page, limit, ...params } })
 }
 
 export function saveNotice(data) {

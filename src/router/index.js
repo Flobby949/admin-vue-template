@@ -12,7 +12,7 @@ import AdminLayout from '@/layout/admin.vue'
 // import Order from '@/views/order/index.vue'
 import Notice from '@/views/notice/index.vue'
 // import Docs from '@/views/docs/index.vue'
-// import Logs from '@/views/log/index.vue'
+import Logs from '@/views/log/index.vue'
 
 const routes = [
   {
@@ -116,7 +116,7 @@ const asyncRoutes = [
   {
     path: '/sys/log/index',
     name: 'logs',
-    // component: Logs,
+    component: Logs,
     meta: {
       title: '登录日志'
     }

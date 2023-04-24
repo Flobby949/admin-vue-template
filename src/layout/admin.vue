@@ -29,6 +29,9 @@ const { sideWidth } = storeToRefs(store)
 </template>
 
 <style scoped>
+.el-header {
+  z-index: 999;
+}
 .el-main {
   @apply w-full h-screen text-left;
   padding: 0 !important;

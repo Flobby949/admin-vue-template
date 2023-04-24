@@ -30,13 +30,13 @@ export default defineConfig({
           '@/utils/tools': ['toast', 'showModal', 'showFullLoading', 'hideFullLoading'],
           '@/utils/storage': ['getToken', 'setToken', 'removeToken', 'getTabList', 'setTabList', 'removeTabList'],
           '@/api/auth': ['login', 'logout', 'getCaptcha'],
-          '@/api/admin': ['getInfo', 'rePassword'],
+          '@/api/admin': ['getInfo', 'rePassword', 'getLogs'],
           '@/api/menu': ['getNav', 'getAuthority'],
           '@/api/notice': ['getNoticePage', 'saveNotice', 'updateNotice', 'deleteNotice'],
           '@/hooks/useAuth': ['useAccountLogin', 'useLogout'],
           '@/hooks/useAdmin': ['usePassword'],
           '@/hooks/useBreadCrumbs': ['useBreadCrumbs'],
-          '@/hooks/useNotice': ['useNotice']
+          '@/hooks/useCrud': ['useInitTable', 'useInitForm']
         }
       ],
       // 指定文件夹位置， 加 /** 可遍历子目录

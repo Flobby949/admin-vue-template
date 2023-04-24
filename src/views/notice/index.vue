@@ -1,24 +1,34 @@
 <script setup>
-const {
-  tableData,
-  loading,
-  currentPage,
-  total,
-  limit,
-  keyword,
-  form,
-  formRef,
-  formDrawerRef,
-  rules,
-  drawerTitle,
+const { tableData, loading, currentPage, total, limit, getData, handleDelete, params } = useInitTable({
+  getList: getNoticePage,
+  delete: deleteNotice
+})
+
+const { formDrawerRef, formRef, form, rules, drawerTitle, handleSubmit, handleCreate, handleEdit } = useInitForm({
+  form: {
+    title: '',
+    content: ''
+  },
+  rules: {
+    title: [
+      {
+        required: true,
+        message: '通知标题不能为空',
+        trigger: 'blur'
+      }
+    ],
+    content: [
+      {
+        required: true,
+        message: '通知内容不能为空',
+        trigger: 'blur'
+      }
+    ]
+  },
   getData,
-  handleEdit,
-  handleSubmit,
-  handleCreate,
-  handleDelete,
-  importNotice,
-  exportNotice
-} = useNotice()
+  update: updateNotice,
+  create: saveNotice
+})
 </script>
 
 <template>
@@ -46,7 +56,7 @@ const {
         >
         <input
           type="text"
-          v-model="keyword"
+          v-model="params.title"
           placeholder="请搜索"
           class="text-gray-500 border-gray-300 border-solid border-1 outline-none rounded-2xl py-1 ml-3 w-60 pl-2 text-sm"
         />
