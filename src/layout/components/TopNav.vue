@@ -1,26 +1,33 @@
 <script setup>
 const store = useAdminStore()
 const { adminInfo, sideWidth } = storeToRefs(store)
+const { handleSideWidth } = store
 const { handleLogout } = useLogout()
 const { formDrawerRef, form, rules, formRef, openRepasswordForm, onSubmit } = usePassword()
+const { isFullscreen, toggle } = useFullscreen()
+const handleRefresh = () => location.reload()
 </script>
 
 <template>
   <div class="f-header v-center">
     <RouterLink to="/">
-      <div class="f-center text-[1.5rem] transition-all duration-500 w-[220px]">
-        <IEpElementPlus class="mr-3" />
-        <span v-show="sideWidth === '220px'">极客空间</span>
+      <div class="f-center text-[1.5rem] transition-all duration-500" :style="{ width: sideWidth }">
+        <IEpElementPlus />
+        <span class="ml-3" v-show="sideWidth === '220px'">极客空间</span>
       </div>
     </RouterLink>
 
-    <div class="icon v-center">
-      <IEpFold />
+    <div @click="handleSideWidth" class="icon v-center">
+      <IEpFold v-if="sideWidth === '220px'" />
+      <IEpExpand v-else />
     </div>
 
     <div class="ml-auto v-center">
-      <IEpRefresh class="icon" />
-      <IEpFullScreen class="icon" />
+      <IEpRefresh class="icon" @click="handleRefresh" />
+      <div @click="toggle" class="icon v-center">
+        <IEpFullScreen v-if="!isFullscreen" />
+        <IEpAim v-else />
+      </div>
       <IEpPrinter class="icon" />
       <IEpSetting class="icon" />
 
@@ -57,7 +64,7 @@ const { formDrawerRef, form, rules, formRef, openRepasswordForm, onSubmit } = us
 
 <style scoped>
 .f-header {
-  @apply bg-gradient-to-r from-cyan-600 to-sky-600 text-light-50 fixed top-0 left-0 right-0 h-16 shadow-xl shadow-gray-400;
+  @apply bg-gradient-to-r from-cyan-600 to-sky-600 text-light-50 fixed top-0 left-0 right-0 h-16;
 }
 .el-icon {
   @apply mx-1;
