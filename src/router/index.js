@@ -10,7 +10,7 @@ import AdminLayout from '@/layout/admin.vue'
 // import User from '@/views/user/index.vue'
 // import Goods from '@/views/goods/index.vue'
 // import Order from '@/views/order/index.vue'
-// import Notice from '@/views/notice/index.vue'
+import Notice from '@/views/notice/index.vue'
 // import Docs from '@/views/docs/index.vue'
 // import Logs from '@/views/log/index.vue'
 
@@ -100,7 +100,7 @@ const asyncRoutes = [
   {
     path: '/notice/index',
     name: 'notice',
-    // component: Notice,
+    component: Notice,
     meta: {
       title: '通知管理'
     }

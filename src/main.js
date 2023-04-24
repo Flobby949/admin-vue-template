@@ -21,4 +21,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 import 'nprogress/nprogress.css'
 import 'virtual:windi.css'
 
+import permission from '@/directives/permission'
+app.use(permission)
+
 app.mount('#app')
