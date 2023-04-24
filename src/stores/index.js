@@ -10,7 +10,6 @@ export const useAdminStore = defineStore('admin', {
       return new Promise((resolve, reject) => {
         login(username, password)
           .then(res => {
-            console.log(res)
             setToken(res.accessToken)
             resolve(res)
           })
@@ -22,7 +21,6 @@ export const useAdminStore = defineStore('admin', {
       return new Promise((resolve, reject) => {
         getInfo()
           .then(res => {
-            console.log(res)
             this.adminInfo = res.user
             this.menus = res.nav
             this.authorities = res.authority

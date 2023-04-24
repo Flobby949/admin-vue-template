@@ -30,7 +30,8 @@ export default defineConfig({
           '@/api/admin': ['getInfo', 'rePassword'],
           '@/api/menu': ['getNav', 'getAuthority'],
           '@/stores': ['useAdminStore'],
-          '@/hooks/useAuth': ['useAccountLogin', 'useLogout']
+          '@/hooks/useAuth': ['useAccountLogin', 'useLogout'],
+          '@/hooks/useAdmin': ['usePassword']
         }
       ],
       // 指定文件夹位置， 加 /** 可遍历子目录

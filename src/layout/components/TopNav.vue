@@ -3,6 +3,7 @@ const store = useAdminStore()
 const { adminInfo } = storeToRefs(store)
 
 const { handleLogout } = useLogout()
+const { formDrawerRef, form, rules, formRef, openRepasswordForm, onSubmit } = usePassword()
 </script>
 
 <template>
@@ -32,13 +33,27 @@ const { handleLogout } = useLogout()
         </span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>修改密码</el-dropdown-item>
+            <el-dropdown-item @click="openRepasswordForm">修改密码</el-dropdown-item>
             <el-dropdown-item @click="handleLogout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
     </div>
   </div>
+
+  <form-drawer ref="formDrawerRef" title="修改密码" destroyOnClose @submit="onSubmit">
+    <el-form :model="form" ref="formRef" :rules="rules" label-width="80px">
+      <el-form-item label="旧密码" prop="oldPassword">
+        <el-input v-model="form.oldPassword" placeholder="请输入旧密码"></el-input>
+      </el-form-item>
+      <el-form-item label="新密码" prop="newPassword">
+        <el-input v-model="form.newPassword" placeholder="请输入新密码"></el-input>
+      </el-form-item>
+      <el-form-item label="确认密码" prop="rePassword">
+        <el-input v-model="form.rePassword" placeholder="请确认密码"></el-input>
+      </el-form-item>
+    </el-form>
+  </form-drawer>
 </template>
 
 <style scoped>
