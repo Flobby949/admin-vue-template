@@ -23,7 +23,7 @@ export const useAdminStore = defineStore('admin', {
         getInfo()
           .then(res => {
             console.log(res)
-            this.adminInfo = res.sysUserVO
+            this.adminInfo = res.user
             this.menus = res.nav
             this.authorities = res.authority
             resolve(res)
