@@ -3,15 +3,23 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Index from '@/views/index.vue'
 import Login from '@/views/login/index.vue'
 import NotFound from '@/views/404.vue'
+import AdminLayout from '@/layout/admin.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'index',
-    component: Index,
-    meta: {
-      title: '仪表盘'
-    }
+    component: AdminLayout,
+    redirect: '/index',
+    children: [
+      {
+        path: '/index',
+        name: 'index',
+        component: Index,
+        meta: {
+          title: '仪表盘'
+        }
+      }
+    ]
   },
   {
     path: '/login',

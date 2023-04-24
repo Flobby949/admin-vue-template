@@ -42,7 +42,7 @@ export default defineConfig({
     }),
     Components({
       // 指定组件所在文件夹的位置，默认是 src/components，可以自行扩充
-      dirs: ['src/components'],
+      dirs: ['src/components', 'src/layout/components'],
       // 解析 ElementPlus
       resolvers: [ElementPlusResolver()],
       // 组件的有效文件扩展名
