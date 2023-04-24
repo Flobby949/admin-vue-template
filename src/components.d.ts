@@ -30,6 +30,8 @@ declare module '@vue/runtime-core' {
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    ElTabPane: typeof import('element-plus/es')['ElTabPane']
+    ElTabs: typeof import('element-plus/es')['ElTabs']
     FormDrawer: typeof import('./components/FormDrawer.vue')['default']
     Hello: typeof import('./components/hello.vue')['default']
     IEpAim: typeof import('~icons/ep/aim')['default']
