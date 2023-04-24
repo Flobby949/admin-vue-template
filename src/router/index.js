@@ -167,6 +167,10 @@ router.beforeEach(async (to, from, next) => {
     return next({ path: from.path ? from.path : '/' })
   }
 
+  if (to.path == '/login') {
+    hasGetInfo = false
+  }
+
   const { getStoreInfo } = useAdminStore()
   // 如果用户登录了，则获取用户信息、菜单信息并存储在 pinia 中
   let hasNewRoutes = false
