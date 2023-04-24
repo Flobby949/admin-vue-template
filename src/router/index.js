@@ -8,17 +8,26 @@ const routes = [
   {
     path: '/',
     name: 'index',
-    component: Index
+    component: Index,
+    meta: {
+      title: '仪表盘'
+    }
   },
   {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    meta: {
+      title: '登录页'
+    }
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
-    component: NotFound
+    component: NotFound,
+    meta: {
+      title: '页面不存在'
+    }
   }
 ]
 
@@ -28,6 +37,9 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
+  // 显示进度条
+  showFullLoading()
+
   const token = getToken()
   // 没有登录，强制跳转回登录页
   if (!token && to.path != '/login') {
@@ -47,7 +59,14 @@ router.beforeEach(async (to, from, next) => {
     await getStoreInfo()
   }
 
+  // 设置页面标题
+  let title = `后台系统 - ${to.meta.title || ''}`
+  document.title = title
+
   next()
 })
+
+// 设置后置守卫
+router.afterEach(() => hideFullLoading())
 
 export default router
