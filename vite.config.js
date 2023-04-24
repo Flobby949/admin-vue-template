@@ -19,13 +19,17 @@ export default defineConfig({
         'vue',
         'vue-router',
         '@vueuse/core',
+        'pinia',
         // 自定义 ：https://github.com/antfu/unplugin-auto-import#configurations
         {
           // onBeforeRouteLeave 'vue-router’的这个Api未被自动导入，在这里补充
           'vue-router': ['onBeforeRouteLeave'],
           '@/utils/tools': ['toast', 'showModal'],
           '@/utils/storage': ['getToken', 'setToken', 'removeToken'],
-          '@/api/auth': ['login', 'logout', 'getCaptcha']
+          '@/api/auth': ['login', 'logout', 'getCaptcha'],
+          '@/api/admin': ['getInfo', 'rePassword'],
+          '@/api/menu': ['getNav', 'getAuthority'],
+          '@/stores': ['useAdminStore']
         }
       ],
       // 指定文件夹位置， 加 /** 可遍历子目录
