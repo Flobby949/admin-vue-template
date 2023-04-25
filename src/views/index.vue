@@ -5,11 +5,12 @@ setTimeout(() => {
   getStatistics1().then(res => {
     panels.value = res
   })
-}, 2000)
+}, 1000)
 </script>
 
 <template>
   <div class="p-3">
+    <!-- 页面上方，统计面板 -->
     <el-row :gutter="20">
       <template v-if="panels.length == 0">
         <el-col :span="6" v-for="index in 4" :key="index">
@@ -51,6 +52,15 @@ setTimeout(() => {
           </div>
         </el-card>
       </el-col>
+    </el-row>
+    <!-- 页面下方，左右结构 -->
+    <el-row :gutter="20" class="mt-5">
+      <!-- 左侧柱状图 -->
+      <el-col :span="12">
+        <IndexChart />
+      </el-col>
+      <!-- 右侧分类标签组件 -->
+      <el-col :span="12"></el-col>
     </el-row>
   </div>
 </template>
