@@ -18,7 +18,7 @@ const colors = ['#22d3ee', '#22c55e', '#d6d3d1', '#f59e0b']
     <el-row :gutter="20">
       <el-col :span="6" v-for="(item, index) in btns" :key="index">
         <el-card class="shadow" :style="{ backgroundColor: colors[index] }">
-          <div class="flex flex-col justify-center items-center">
+          <div class="f-col-center">
             <span class="text-xl">{{ item.value }}</span>
             <span class="text-xs text-gray-500">{{ item.label }}</span>
           </div>

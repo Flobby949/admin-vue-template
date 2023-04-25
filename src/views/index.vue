@@ -60,6 +60,7 @@ getStatistics3().then(res => {
         </el-card>
       </el-col>
     </el-row>
+    <IndexNav />
     <!-- 页面下方，左右结构 -->
     <el-row :gutter="20" class="mt-5">
       <!-- 左侧柱状图 -->

@@ -6,6 +6,7 @@ export default defineConfig({
   // 配置一些常用的组合样式
   shortcuts: {
     'f-center': 'flex justify-center items-center',
+    'f-col-center': 'flex flex-col justify-center items-center',
     'f-around': 'flex justify-around items-center',
     'f-between': 'flex justify-between items-center',
     'v-center': 'flex items-center',

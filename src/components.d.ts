@@ -58,6 +58,7 @@ declare module '@vue/runtime-core' {
     IEpSetting: typeof import('~icons/ep/setting')['default']
     IEpUser: typeof import('~icons/ep/user')['default']
     IndexChart: typeof import('./components/IndexChart.vue')['default']
+    IndexNav: typeof import('./components/IndexNav.vue')['default']
     IndexTag: typeof import('./components/IndexTag.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
