@@ -55,7 +55,11 @@ const { activeTab, tabList, changeTab, removeTab, handleClose } = useBreadCrumbs
   height: 32px;
 }
 :deep(.el-tabs__header) {
-  @apply mb-0;
+  @apply mb-0 flex items-center;
+  border: none !important;
+}
+:deep(.el-tabs--card) {
+  border: none !important;
 }
 :deep(.el-tabs__nav) {
   border: 0 !important;

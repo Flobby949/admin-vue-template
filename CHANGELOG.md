@@ -1,4 +1,4 @@
-# 1.0.0 (2023-04-24)
+# 1.0.0 (2023-04-25)
 
 
 ### Features
@@ -8,10 +8,13 @@
 * **custom:** 抽离登录逻辑为 hooks ([c57f123](https://github.com/Flobby949/admin-vue-template/commit/c57f1234178229da1c9395712896c474364a8da2))
 * **custom:** 登录页面开发 ([d3bc7bb](https://github.com/Flobby949/admin-vue-template/commit/d3bc7bbe63953bf4704a84e4ac17e162dc964698))
 * **custom:** 顶部导航组件开发 ([5d0a1eb](https://github.com/Flobby949/admin-vue-template/commit/5d0a1eb65881c690394c5fd9133e009f76cfd903))
+* **custom:** 分类统计标签组件 ([3e07729](https://github.com/Flobby949/admin-vue-template/commit/3e077295eac6d3527e9b20bf923b8445470eee75))
 * **custom:** 封装常用工具类 ([44f5e63](https://github.com/Flobby949/admin-vue-template/commit/44f5e63c90e9f2a0e81d504a7dcb5d22f0b0e9a8))
 * **custom:** 封装通用抽屉组件 ([bc1d695](https://github.com/Flobby949/admin-vue-template/commit/bc1d6953162d6df099af4672b5e500dda9813fe5))
 * **custom:** 封装通用的useCrud hook ([bdbcaa6](https://github.com/Flobby949/admin-vue-template/commit/bdbcaa699c23db7621f12496189deb9e62a93030))
+* **custom:** 骨架屏优化 ([2d2f8cd](https://github.com/Flobby949/admin-vue-template/commit/2d2f8cd1165dc0535fc9835cf495eb23018266aa))
 * **custom:** 后台主布局实现 ([69678aa](https://github.com/Flobby949/admin-vue-template/commit/69678aaa1fb47f409954fca94268b144622ffe27))
+* **custom:** 快速导航组件 ([d82a823](https://github.com/Flobby949/admin-vue-template/commit/d82a823ec474db2fa38faa28ce947c2ffe950113))
 * **custom:** 面包屑组件封装和交互 ([ec9c7d7](https://github.com/Flobby949/admin-vue-template/commit/ec9c7d72d4b92ea8621f095a94eed1de3284e720))
 * **custom:** 配置路由和404 ([2b639a1](https://github.com/Flobby949/admin-vue-template/commit/2b639a1eafbff98fe74e5a85cdfaa8b6d53b36cc))
 * **custom:** 配置自动导入 ([7010706](https://github.com/Flobby949/admin-vue-template/commit/7010706bf51c04a9bf9aef4cc40e9be6dbc3ce4f))
@@ -20,9 +23,12 @@
 * **custom:** 全局引入图标 ([ac85304](https://github.com/Flobby949/admin-vue-template/commit/ac85304f72d73594ac497237b5af730447d9addd))
 * **custom:** 设置动态标题和全局进度条 ([6695ac2](https://github.com/Flobby949/admin-vue-template/commit/6695ac274df7ef63745beabaf069e6aa92c143cd))
 * **custom:** 使用 Pinia 管理用户信息 ([20eed0f](https://github.com/Flobby949/admin-vue-template/commit/20eed0ff544a2d86904398472b1d46ef048ba874))
+* **custom:** 首页数据统计面板 ([0d759e2](https://github.com/Flobby949/admin-vue-template/commit/0d759e260c6c5df24b0585f802cb1d039ccccc73))
 * **custom:** 通知模块开发 ([c6a445c](https://github.com/Flobby949/admin-vue-template/commit/c6a445c7aa738ffeb27d5c9e789a1bd74012dd5c))
+* **custom:** 统计面板数字动画组件 ([9ab6161](https://github.com/Flobby949/admin-vue-template/commit/9ab61613c2dc443f3dc5bea6862252988f5d83ec))
 * **custom:** 项目搭建+代码规范 ([b908a35](https://github.com/Flobby949/admin-vue-template/commit/b908a35d3adcd54f88463e70c6be45b6ce71dbc9))
 * **custom:** 修改密码hooks封装和调用 ([d365d00](https://github.com/Flobby949/admin-vue-template/commit/d365d00b0a3f5d790e2880f741145e437f33548f))
+* **custom:** 仪表盘ECharts统计图 ([1a56839](https://github.com/Flobby949/admin-vue-template/commit/1a5683919debd55b5d33c3cd28cc4a94eda7e4e2))
 * **custom:** 引入 Element Plus ([8b3c843](https://github.com/Flobby949/admin-vue-template/commit/8b3c843c838719cb0c975b38de4613cb38310492))
 * **custom:** 引入 WindiCSS ([855cea0](https://github.com/Flobby949/admin-vue-template/commit/855cea022f63ad3ac18b478c08665e04f14b779a))
 * **custom:** 引入axios和后端接口交互 ([5215518](https://github.com/Flobby949/admin-vue-template/commit/5215518876a2077578d25f5b41d33afd1c87f831))
