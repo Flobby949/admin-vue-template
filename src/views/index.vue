@@ -6,6 +6,13 @@ setTimeout(() => {
     panels.value = res
   })
 }, 1000)
+
+const goods = ref([])
+const orders = ref([])
+getStatistics3().then(res => {
+  goods.value = res.goods
+  orders.value = res.orders
+})
 </script>
 
 <template>
@@ -60,7 +67,10 @@ setTimeout(() => {
         <IndexChart />
       </el-col>
       <!-- 右侧分类标签组件 -->
-      <el-col :span="12"></el-col>
+      <el-col :span="12">
+        <IndexTag title="店铺及商品提示" tip="店铺及商品提示" :btns="goods" class="mb-3" />
+        <IndexTag title="交易提示" tip="需要立即处理的交易订单" :btns="orders" />
+      </el-col>
     </el-row>
   </div>
 </template>

@@ -91,6 +91,6 @@ const getData = () => {
         </div>
       </div>
     </template>
-    <div ref="chartRef" class="w-full h-60"></div>
+    <div ref="chartRef" class="w-full h-[282px]"></div>
   </el-card>
 </template>
