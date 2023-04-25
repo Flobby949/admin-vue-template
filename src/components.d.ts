@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BreadCrumbs: typeof import('./layout/components/BreadCrumbs.vue')['default']
     CountTo: typeof import('./components/CountTo.vue')['default']
+    CustomVueChart: typeof import('./components/CustomVueChart.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']

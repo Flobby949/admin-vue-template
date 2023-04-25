@@ -1,4 +1,9 @@
-# 1.0.0 (2023-04-25)
+## 1.0.1 (2023-04-25)
+
+
+### Bug Fixes
+
+* **custom:** 修改面包屑样式 ([2dacbfb](https://github.com/Flobby949/admin-vue-template/commit/2dacbfb28bfcfc70c685812467821ba957851ee3))
 
 
 ### Features

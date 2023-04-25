@@ -73,5 +73,17 @@ getStatistics3().then(res => {
         <IndexTag title="交易提示" tip="需要立即处理的交易订单" :btns="orders" />
       </el-col>
     </el-row>
+    <el-row :gutter="20">
+      <el-col :span="12">
+        <el-card class="shadow my-5">
+          <template #header>
+            <div class="flex justify-around">
+              <span class="text-sm">玫瑰图</span>
+            </div>
+          </template>
+          <customVueChart chartType="pie" title=""></customVueChart>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>

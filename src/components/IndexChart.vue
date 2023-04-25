@@ -16,7 +16,6 @@ const options = [
     value: 'hour'
   }
 ]
-
 const handleChoose = type => {
   current.value = type
   getData()
@@ -37,10 +36,29 @@ onMounted(() => {
   getData()
 })
 
+const chartType = ref('bar')
+const chartTypes = [
+  {
+    text: '柱状图',
+    value: 'bar'
+  },
+  {
+    text: '折线图',
+    value: 'line'
+  }
+]
+const handleChooseChart = type => {
+  chartType.value = type
+  getData()
+}
 const getData = () => {
   let option
 
   option = {
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b} : {c}'
+    },
     xAxis: {
       type: 'category',
       data: [] // 等待接口数据
@@ -49,7 +67,7 @@ const getData = () => {
     series: [
       {
         data: [], // 等待接口数据
-        type: 'bar',
+        type: chartType.value,
         showBackground: true,
         backgroundStyle: {
           color: 'rgba(180, 180, 180, 0.2)'
@@ -78,6 +96,17 @@ const getData = () => {
     <template #header>
       <div class="f-between">
         <span class="text-sm">订单统计</span>
+        <div>
+          <el-check-tag
+            v-for="(item, index) in chartTypes"
+            :key="index"
+            :checked="chartType == item.value"
+            class="mr-2"
+            @click="handleChooseChart(item.value)"
+          >
+            {{ item.text }}
+          </el-check-tag>
+        </div>
         <div>
           <el-check-tag
             v-for="(item, index) in options"
