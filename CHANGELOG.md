@@ -10,6 +10,7 @@
 * **custom:** 顶部导航组件开发 ([5d0a1eb](https://github.com/Flobby949/admin-vue-template/commit/5d0a1eb65881c690394c5fd9133e009f76cfd903))
 * **custom:** 封装常用工具类 ([44f5e63](https://github.com/Flobby949/admin-vue-template/commit/44f5e63c90e9f2a0e81d504a7dcb5d22f0b0e9a8))
 * **custom:** 封装通用抽屉组件 ([bc1d695](https://github.com/Flobby949/admin-vue-template/commit/bc1d6953162d6df099af4672b5e500dda9813fe5))
+* **custom:** 封装通用的useCrud hook ([bdbcaa6](https://github.com/Flobby949/admin-vue-template/commit/bdbcaa699c23db7621f12496189deb9e62a93030))
 * **custom:** 后台主布局实现 ([69678aa](https://github.com/Flobby949/admin-vue-template/commit/69678aaa1fb47f409954fca94268b144622ffe27))
 * **custom:** 面包屑组件封装和交互 ([ec9c7d7](https://github.com/Flobby949/admin-vue-template/commit/ec9c7d72d4b92ea8621f095a94eed1de3284e720))
 * **custom:** 配置路由和404 ([2b639a1](https://github.com/Flobby949/admin-vue-template/commit/2b639a1eafbff98fe74e5a85cdfaa8b6d53b36cc))
