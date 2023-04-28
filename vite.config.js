@@ -28,7 +28,7 @@ export default defineConfig({
           'vue-router': ['onBeforeRouteLeave', 'onBeforeRouteUpdate'],
           '@/stores': ['useAdminStore'],
           '@/router': ['addRoutes'],
-          '@/utils/tools': ['toast', 'showModal', 'showFullLoading', 'hideFullLoading'],
+          '@/utils/tools': ['toast', 'showModal', 'showFullLoading', 'hideFullLoading', 'msg'],
           '@/utils/storage': ['getToken', 'setToken', 'removeToken', 'getTabList', 'setTabList', 'removeTabList'],
           '@/api/auth': ['login', 'logout', 'getCaptcha'],
           '@/api/admin': ['getInfo', 'rePassword', 'getLogs'],

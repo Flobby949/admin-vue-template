@@ -41,11 +41,15 @@ const handleSelect = e => {
 // 批量删除
 const multipleTableRef = ref(null)
 const handleMultiDelete = () => {
-  console.log(123)
   loading.value = true
+  if (multiSelectIds.value.length == 0) {
+    msg('未选择记录！', 'error')
+    loading.value = false
+    return
+  }
   deleteBatch(multiSelectIds.value)
     .then(() => {
-      toast('删除成功')
+      msg('删除成功')
       // 清空选中
       if (multipleTableRef.value) {
         multipleTableRef.value.clearSelection()

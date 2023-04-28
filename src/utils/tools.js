@@ -27,3 +27,12 @@ export function showFullLoading() {
 export function hideFullLoading() {
   nprogress.done()
 }
+
+// 全局消息提示
+export function msg(message = '消息提示', type = 'success', duration = 1000) {
+  ElMessage({
+    message,
+    type,
+    duration
+  })
+}
