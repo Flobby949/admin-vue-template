@@ -120,6 +120,7 @@ const handleMultiDelete = () => {
           <el-button type="primary" size="small" @click="handleEdit(scope.row)" v-permission="['sys:notice:update']"
             >修改</el-button
           >
+          <el-button type="primary" size="small" @click="openDialog">对话框</el-button>
           <el-popconfirm
             title="你确定删除公告吗？"
             confirmButtonText="确认"
