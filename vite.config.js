@@ -11,6 +11,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
     vue(),
     WindiCSS(),
@@ -32,7 +33,7 @@ export default defineConfig({
           '@/api/auth': ['login', 'logout', 'getCaptcha'],
           '@/api/admin': ['getInfo', 'rePassword', 'getLogs'],
           '@/api/menu': ['getNav', 'getAuthority'],
-          '@/api/notice': ['getNoticePage', 'saveNotice', 'updateNotice', 'deleteNotice'],
+          '@/api/notice': ['getNoticePage', 'saveNotice', 'updateNotice', 'deleteNotice', 'deleteBatch'],
           '@/api/index': ['getStatistics1', 'getStatistics2', 'getStatistics3'],
           '@/hooks/useAuth': ['useAccountLogin', 'useLogout'],
           '@/hooks/useAdmin': ['usePassword'],

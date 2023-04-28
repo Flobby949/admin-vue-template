@@ -15,3 +15,7 @@ export function updateNotice(data) {
 export function deleteNotice(id) {
   return axios.delete(`/sys/notice/${id}`)
 }
+
+export function deleteBatch(ids) {
+  return axios.delete(`/sys/notice/batch`, ids)
+}
