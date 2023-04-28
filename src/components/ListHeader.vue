@@ -7,7 +7,7 @@ const props = defineProps({
 })
 const btns = computed(() => props.layout.trim().split(','))
 
-defineEmits(['crrate', 'refresh', 'delete'])
+defineEmits(['create', 'refresh', 'delete'])
 </script>
 <template>
   <div class="f-between mb-4">
@@ -17,14 +17,14 @@ defineEmits(['crrate', 'refresh', 'delete'])
         type="primary"
         size="small"
         class="px-5 py-4 rounded-full"
-        @click="$emit('crrate')"
+        @click="$emit('create')"
         >新增数据</el-button
       >
       <el-popconfirm
         title="是否要删除选中记录？"
         confirmButtonText="确认"
         cancelButtonText="取消"
-        @comfirm="$emit('delete')"
+        @confirm="$emit('delete')"
       >
         <template #reference>
           <el-button type="danger" size="small" class="px-5 py-4 rounded-full">批量删除</el-button></template

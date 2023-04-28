@@ -17,5 +17,5 @@ export function deleteNotice(id) {
 }
 
 export function deleteBatch(ids) {
-  return axios.delete(`/sys/notice/batch`, ids)
+  return axios.delete(`/sys/notice/batch`, { data: ids })
 }

@@ -1,4 +1,5 @@
 <script setup>
+// eslint-disable-next-line no-unused-vars
 const { tableData, loading, currentPage, total, limit, getData, handleDelete, params } = useInitTable({
   getList: getNoticePage,
   delete: deleteNotice
@@ -29,11 +30,37 @@ const { formDrawerRef, formRef, form, rules, drawerTitle, handleSubmit, handleCr
   update: updateNotice,
   create: saveNotice
 })
+
+// 多选
+const multiSelectIds = ref([])
+const handleSelect = e => {
+  multiSelectIds.value = e.map(o => o.id)
+  console.log(multiSelectIds.value)
+}
+
+// 批量删除
+const multipleTableRef = ref(null)
+const handleMultiDelete = () => {
+  console.log(123)
+  loading.value = true
+  deleteBatch(multiSelectIds.value)
+    .then(() => {
+      toast('删除成功')
+      // 清空选中
+      if (multipleTableRef.value) {
+        multipleTableRef.value.clearSelection()
+      }
+      getData()
+    })
+    .finally(() => {
+      loading.value = false
+    })
+}
 </script>
 
 <template>
   <el-card shadow="never" class="border-0">
-    <!-- 新建/刷新 -->
+    <!-- 新建/刷新
     <div class="f-between mb-4">
       <div>
         <el-button
@@ -67,9 +94,20 @@ const { formDrawerRef, formRef, form, rules, drawerTitle, handleSubmit, handleCr
           <IEpRefresh />
         </el-button>
       </el-tooltip>
-    </div>
+    </div> -->
 
-    <el-table :data="tableData" stripe v-loading="loading" class="w-full">
+    <!-- 新增，批量删除，属性 -->
+    <list-header @create="handleCreate" @refresh="getData" @delete="handleMultiDelete"></list-header>
+
+    <el-table
+      :data="tableData"
+      stripe
+      v-loading="loading"
+      class="w-full"
+      ref="multipleTableRef"
+      @selection-change="handleSelect"
+    >
+      <el-table-column type="selection" width="55" />
       <el-table-column label="公告标题" prop="title" />
       <el-table-column label="公告内容" prop="content" />
       <el-table-column label="发布时间" prop="createTime" width="380" />
