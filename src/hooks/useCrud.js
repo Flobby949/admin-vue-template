@@ -31,6 +31,7 @@ export function useInitTable(opt = {}) {
 
   // 删除
   const handleDelete = id => {
+    console.log(id)
     loading.value = true
     opt
       .delete(id)
@@ -65,6 +66,12 @@ export function useInitForm(opt = {}) {
   const rules = opt.rules || {}
   const editId = ref(0)
   const drawerTitle = computed(() => (editId.value ? '修改' : '新增'))
+  // 多选
+  const multiSelectIds = ref([])
+  const handleSelect = e => {
+    multiSelectIds.value = e.map(o => o.id)
+  }
+  const multipleTableRef = ref(null)
 
   const handleSubmit = () => {
     formRef.value.validate(valid => {
@@ -79,9 +86,7 @@ export function useInitForm(opt = {}) {
         body = form
       }
 
-      const fun = editId.value
-        ? opt.update({ id: editId.value, title: form.title, content: form.content })
-        : opt.create(body)
+      const fun = editId.value ? opt.update({ id: editId.value, ...form }) : opt.create(body)
 
       fun
         .then(() => {
@@ -118,9 +123,33 @@ export function useInitForm(opt = {}) {
     formDrawerRef.value.open()
   }
 
+  // 批量删除
+  const deleteBatch = () => {
+    opt.loading.value = true
+    if (multiSelectIds.value.length == 0) {
+      msg('未选择记录！', 'error')
+      opt.loading.value = false
+      return
+    }
+    opt
+      .batchDelete(multiSelectIds.value)
+      .then(() => {
+        msg('删除成功')
+        // 清空选中
+        if (multipleTableRef.value) {
+          multipleTableRef.value.clearSelection()
+        }
+        opt.getData()
+      })
+      .finally(() => {
+        opt.loading.value = false
+      })
+  }
+
   return {
     formDrawerRef,
     formRef,
+    multipleTableRef,
     form,
     rules,
     editId,
@@ -128,6 +157,8 @@ export function useInitForm(opt = {}) {
     handleSubmit,
     resetForm,
     handleCreate,
-    handleEdit
+    handleEdit,
+    handleSelect,
+    deleteBatch
   }
 }

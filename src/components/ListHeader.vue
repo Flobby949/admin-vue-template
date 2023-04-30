@@ -2,16 +2,16 @@
 const props = defineProps({
   layout: {
     type: String,
-    default: 'create,delete,refresh'
+    default: 'create,delete,refresh,export'
   }
 })
-const btns = computed(() => props.layout.trim().split(','))
+const btns = computed(() => props.layout.split(','))
 
-defineEmits(['create', 'refresh', 'delete'])
+defineEmits(['create', 'refresh', 'delete', 'export'])
 </script>
 <template>
   <div class="f-between mb-4">
-    <div>
+    <div class="flex">
       <el-button
         v-if="btns.includes('create')"
         type="primary"
@@ -30,6 +30,15 @@ defineEmits(['create', 'refresh', 'delete'])
           <el-button type="danger" size="small" class="px-5 py-4 rounded-full">批量删除</el-button></template
         >
       </el-popconfirm>
+      <slot name="import"></slot>
+      <el-button
+        v-if="btns.includes('export')"
+        type="success"
+        size="small"
+        class="px-5 py-4 rounded-full"
+        @click="$emit('export')"
+        >导出数据</el-button
+      >
     </div>
     <div>
       <el-tooltip effect="dark" content="刷新数据" placement="top">
