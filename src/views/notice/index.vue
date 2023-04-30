@@ -1,41 +1,13 @@
 <template>
   <el-card shadow="never" class="border-0">
-    <!-- 新建/刷新
-    <div class="f-between mb-4">
-      <div>
-        <el-button
-          class="px-8 py-4 bg-blue-500 text-light-50 rounded-full"
-          @click="handleCreate"
-          v-permission="['sys:notice:save']"
-          >新增</el-button
-        >
-        <el-button
-          class="px-8 py-4 bg-green-500 text-light-50 rounded-full"
-          @click="importNotice"
-          v-permission="['sys:notice:import']"
-          >导入</el-button
-        >
-        <el-button
-          class="px-8 py-4 bg-indigo-500 text-light-50 rounded-full"
-          @click="exportNotice"
-          v-permission="['sys:notice:export']"
-          >导出</el-button
-        >
-        <input
-          type="text"
-          v-model="params.title"
-          placeholder="请搜索"
-          class="text-gray-500 border-gray-300 border-solid border-1 outline-none rounded-2xl py-1 ml-3 w-60 pl-2 text-sm"
-        />
-        <el-button class="px-8 py-4 bg-sky-500 text-light-50 rounded-full ml-2" @click="getData">搜索</el-button>
-      </div>
-      <el-tooltip content="刷新数据" placement="top" effect="dark">
-        <el-button text @click="getData">
-          <IEpRefresh />
-        </el-button>
-      </el-tooltip>
-    </div> -->
-
+    <custom-search :model="searchForm" @search="getData" @reset="resetSearchForm">
+      <el-form-item label="通知标题" :span="4">
+        <el-input v-model="searchForm.title" placeholder="通知标题" clearable />
+      </el-form-item>
+      <el-form-item label="通知内容" :span="4">
+        <el-input v-model="searchForm.content" placeholder="通知内容" clearable />
+      </el-form-item>
+    </custom-search>
     <!-- 新增，批量删除，属性 -->
     <list-header @create="handleCreate" @refresh="getData" @delete="handleMultiDelete"></list-header>
 
@@ -96,10 +68,11 @@
 
 <script setup>
 // eslint-disable-next-line no-unused-vars
-const { tableData, loading, currentPage, total, limit, getData, handleDelete, params } = useInitTable({
-  getList: getNoticePage,
-  delete: deleteNotice
-})
+const { tableData, loading, currentPage, total, limit, getData, handleDelete, searchForm, resetSearchForm } =
+  useInitTable({
+    getList: getNoticePage,
+    delete: deleteNotice
+  })
 
 const { formDrawerRef, formRef, form, rules, drawerTitle, handleSubmit, handleCreate, handleEdit } = useInitForm({
   form: {

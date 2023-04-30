@@ -1,5 +1,42 @@
 <template>
   <el-card shadow="never" class="border-0">
+    <custom-search :model="searchForm" @search="getData" @reset="resetSearchForm">
+      <el-form-item label="用户名" :span="4">
+        <el-input v-model="searchForm.username" placeholder="用户名" clearable />
+      </el-form-item>
+      <el-form-item label="姓名" :span="4">
+        <el-input v-model="searchForm.realName" placeholder="姓名" clearable />
+      </el-form-item>
+      <el-form-item label="手机号">
+        <el-input v-model="searchForm.mobile" placeholder="手机号" clearable />
+      </el-form-item>
+      <el-form-item label="性别" :span="4">
+        <el-select v-model="searchForm.gender" placeholder="选择性别" clearable>
+          <el-option
+            v-for="item in genderOptions"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+      </el-form-item>
+      <template #show>
+        <el-form-item label="创建时间" class="ml-4">
+          <el-config-provider :locale="local">
+            <el-date-picker
+              v-model="searchForm.dateValue"
+              type="datetimerange"
+              unlink-panels
+              range-separator="到"
+              start-placeholder="开始时间"
+              end-placeholder="结束时间"
+              :shortcuts="shortcuts"
+            ></el-date-picker>
+          </el-config-provider>
+        </el-form-item>
+      </template>
+    </custom-search>
+
     <list-header @create="handleCreate" @refresh="getData" @delete="deleteBatch" @export="exportData">
       <template #import>
         <el-upload :action="uploadUserExcelUrl" :on-success="handleSuccess" :show-file-list="false" class="mx-3">
@@ -116,10 +153,11 @@
 </template>
 
 <script setup>
-const { tableData, loading, currentPage, total, limit, getData, handleDelete } = useInitTable({
-  getList: getUserPage,
-  delete: deleteUser
-})
+const { tableData, loading, currentPage, total, limit, getData, handleDelete, searchForm, resetSearchForm } =
+  useInitTable({
+    getList: getUserPage,
+    delete: deleteUser
+  })
 
 const {
   formDrawerRef,
@@ -197,6 +235,53 @@ const handleStatusChange = (status, row) => {
     row.status = status
   })
 }
-</script>
 
-<style scoped></style>
+import zhcn from 'element-plus/lib/locale/lang/zh-cn'
+// 显示中文
+const local = zhcn
+// 快捷选择
+const shortcuts = [
+  {
+    text: '最近一周',
+    value: () => {
+      const end = new Date()
+      const start = new Date()
+      start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+      return [start, end]
+    }
+  },
+  {
+    text: '最近一个月',
+    value: () => {
+      const end = new Date()
+      const start = new Date()
+      start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+      return [start, end]
+    }
+  },
+  {
+    text: '最近三个月',
+    value: () => {
+      const end = new Date()
+      const start = new Date()
+      start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+      return [start, end]
+    }
+  }
+]
+
+const genderOptions = [
+  {
+    label: '男',
+    value: 0
+  },
+  {
+    label: '女',
+    value: 1
+  },
+  {
+    label: '未知',
+    value: 2
+  }
+]
+</script>
