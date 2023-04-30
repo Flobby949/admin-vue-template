@@ -71,7 +71,11 @@
 const { tableData, loading, currentPage, total, limit, getData, handleDelete, searchForm, resetSearchForm } =
   useInitTable({
     getList: getNoticePage,
-    delete: deleteNotice
+    delete: deleteNotice,
+    searchForm: {
+      title: '',
+      content: ''
+    }
   })
 
 const { formDrawerRef, formRef, form, rules, drawerTitle, handleSubmit, handleCreate, handleEdit } = useInitForm({

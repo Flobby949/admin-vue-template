@@ -156,7 +156,14 @@
 const { tableData, loading, currentPage, total, limit, getData, handleDelete, searchForm, resetSearchForm } =
   useInitTable({
     getList: getUserPage,
-    delete: deleteUser
+    delete: deleteUser,
+    searchForm: {
+      username: '',
+      realName: '',
+      mobile: '',
+      gender: null,
+      dateValue: []
+    }
   })
 
 const {

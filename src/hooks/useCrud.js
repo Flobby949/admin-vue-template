@@ -7,7 +7,7 @@ export function useInitTable(opt = {}) {
   const currentPage = ref(1)
   const total = ref(0)
   const limit = ref(10)
-  let searchForm = reactive({})
+  const searchForm = reactive({ ...opt.searchForm })
 
   // 获取数据
   function getData(p = null) {
@@ -46,7 +46,7 @@ export function useInitTable(opt = {}) {
 
   const resetSearchForm = () => {
     for (const key in searchForm) {
-      searchForm[key] = null
+      searchForm[key] = opt.searchForm[key]
     }
     getData()
   }

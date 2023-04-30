@@ -13,7 +13,8 @@ export function rePassword(data) {
 }
 
 export function getUserPage(page, limit, params) {
-  return axios.get('/sys/user/page', { params: { page, limit, ...params } })
+  let r = queryParams({ page, limit, ...params, beginTime: params.dateValue[0], endTime: params.dateValue[1] })
+  return axios.get('/sys/user/page' + r)
 }
 
 export function getInfoById(id) {

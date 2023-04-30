@@ -36,3 +36,16 @@ export function msg(message = '消息提示', type = 'success', duration = 1000)
     duration
   })
 }
+
+// 将 query 对象转成 url 参数
+export function queryParams(query) {
+  let q = []
+  for (const key in query) {
+    if (query[key]) {
+      q.push(`${key}=${encodeURIComponent(query[key])}`)
+    }
+  }
+  let r = q.join('&')
+  r = r ? '?' + r : ''
+  return r
+}

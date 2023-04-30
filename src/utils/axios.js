@@ -49,7 +49,7 @@ service.interceptors.response.use(
     return Promise.reject(new Error(res.msg || 'Error'))
   },
   error => {
-    toast(error.message)
+    toast(error.message, 'error')
     return Promise.reject(error)
   }
 )
