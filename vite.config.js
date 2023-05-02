@@ -30,7 +30,7 @@ export default defineConfig({
           '@/router': ['addRoutes'],
           '@/utils/tools': ['toast', 'showModal', 'showFullLoading', 'hideFullLoading', 'msg', 'queryParams'],
           '@/utils/storage': ['getToken', 'setToken', 'removeToken', 'getTabList', 'setTabList', 'removeTabList'],
-          '@/api/auth': ['login', 'logout', 'getCaptcha'],
+          '@/api/auth': ['login', 'logout', 'getCaptcha', 'sendCode', 'mobileLogin'],
           '@/api/user': [
             'getInfo',
             'rePassword',
@@ -63,7 +63,7 @@ export default defineConfig({
             'setRoleMenus',
             'getAllRoleList'
           ],
-          '@/hooks/useAuth': ['useAccountLogin', 'useLogout'],
+          '@/hooks/useAuth': ['useAccountLogin', 'useLogout', 'useMobileLogin'],
           '@/hooks/useAdmin': ['usePassword'],
           '@/hooks/useBreadCrumbs': ['useBreadCrumbs'],
           '@/hooks/useCrud': ['useInitTable', 'useInitForm']

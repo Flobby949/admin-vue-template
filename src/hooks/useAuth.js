@@ -74,3 +74,44 @@ export function useLogout() {
     handleLogout
   }
 }
+
+// 手机验证码登录
+export function useMobileLogin() {
+  const router = useRouter()
+  const form = reactive({
+    mobile: '18962521753',
+    code: ''
+  })
+
+  const rules = {
+    mobile: [{ required: true, message: '手机号不能为空', trigger: 'blur' }],
+    code: [{ required: true, message: '验证码不能为空', trigger: 'blur' }]
+  }
+
+  const formRef = ref(null)
+  const loading = ref(false)
+
+  const { storeMobileLogin } = useAdminStore()
+
+  const onSubmit = () => {
+    formRef.value.validate(valid => {
+      if (!valid) {
+        return false
+      }
+      loading.value = true
+      storeMobileLogin(form).then(() => {
+        toast('登录成功')
+        router.push('/')
+        loading.value = false
+      })
+    })
+  }
+
+  return {
+    form,
+    formRef,
+    rules,
+    loading,
+    onSubmit
+  }
+}

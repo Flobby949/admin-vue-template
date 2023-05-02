@@ -17,6 +17,17 @@ export const useAdminStore = defineStore('admin', {
           .catch(err => reject(err))
       })
     },
+    // 手机号登录
+    storeMobileLogin(form) {
+      return new Promise((resolve, reject) => {
+        mobileLogin(form)
+          .then(res => {
+            setToken(res.accessToken)
+            resolve(res)
+          })
+          .catch(err => reject(err))
+      })
+    },
     // 获取当前登录者信息
     getStoreInfo() {
       return new Promise((resolve, reject) => {
