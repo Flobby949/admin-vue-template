@@ -43,7 +43,15 @@ export default defineConfig({
             'exportUser',
             'changeStatus'
           ],
-          '@/api/menu': ['getNav', 'getAuthority', 'getMenuList'],
+          '@/api/menu': [
+            'getNav',
+            'getAuthority',
+            'getMenuList',
+            'getMenuInfo',
+            'createMenu',
+            'updateMenu',
+            'deleteMenu'
+          ],
           '@/api/notice': ['getNoticePage', 'saveNotice', 'updateNotice', 'deleteNotice', 'deleteBatch'],
           '@/api/index': ['getStatistics1', 'getStatistics2', 'getStatistics3'],
           '@/api/role': ['getRoleList', 'getRoleInfo', 'createRole', 'updateRole', 'deleteRole', 'setRoleMenus'],

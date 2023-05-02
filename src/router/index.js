@@ -5,7 +5,7 @@ import Login from '@/views/login/index.vue'
 import NotFound from '@/views/404.vue'
 import AdminLayout from '@/layout/admin.vue'
 
-// import Menu from '@/views/menu/index.vue'
+import Menu from '@/views/menu/index.vue'
 import Role from '@/views/role/index.vue'
 import User from '@/views/user/index.vue'
 // import Goods from '@/views/goods/index.vue'
@@ -60,7 +60,7 @@ const asyncRoutes = [
   {
     path: '/sys/menu/index',
     name: 'menu',
-    // component: Menu,
+    component: Menu,
     meta: {
       title: '菜单管理'
     }
