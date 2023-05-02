@@ -56,6 +56,7 @@ declare module '@vue/runtime-core' {
     ElTreeV2: typeof import('element-plus/es')['ElTreeV2']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     FormDrawer: typeof import('./components/FormDrawer.vue')['default']
+    IconSelect: typeof import('./components/IconSelect.vue')['default']
     IEpAim: typeof import('~icons/ep/aim')['default']
     IEpArrowDown: typeof import('~icons/ep/arrow-down')['default']
     IEpElementPlus: typeof import('~icons/ep/element-plus')['default']
