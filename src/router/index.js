@@ -6,7 +6,7 @@ import NotFound from '@/views/404.vue'
 import AdminLayout from '@/layout/admin.vue'
 
 // import Menu from '@/views/menu/index.vue'
-// import Role from '@/views/role/index.vue'
+import Role from '@/views/role/index.vue'
 import User from '@/views/user/index.vue'
 // import Goods from '@/views/goods/index.vue'
 // import Order from '@/views/order/index.vue'
@@ -68,7 +68,7 @@ const asyncRoutes = [
   {
     path: '/sys/role/index',
     name: 'role',
-    // component: Role,
+    component: Role,
     meta: {
       title: '角色管理'
     }

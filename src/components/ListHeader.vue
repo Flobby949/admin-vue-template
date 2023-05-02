@@ -21,6 +21,7 @@ defineEmits(['create', 'refresh', 'delete', 'export'])
         >新增数据</el-button
       >
       <el-popconfirm
+        v-if="btns.includes('delete')"
         title="是否要删除选中记录？"
         confirmButtonText="确认"
         cancelButtonText="取消"
