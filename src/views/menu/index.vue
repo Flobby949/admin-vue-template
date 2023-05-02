@@ -21,8 +21,8 @@
           <span>{{ data.name }}</span>
 
           <div class="ml-auto">
-            <el-button type="primary" size="small" @click.stop="handleEdit(data)">修改</el-button>
-            <el-button type="success" size="small" @click.stop="addChild(data.id)">增加</el-button>
+            <el-button type="primary" size="small" @click.stop="handleEdit(data)" text>修改</el-button>
+            <el-button type="success" size="small" @click.stop="addChild(data.id)" text>增加</el-button>
             <el-popconfirm
               title="确认删除"
               confirmButtonText="确认"

@@ -54,7 +54,15 @@ export default defineConfig({
           ],
           '@/api/notice': ['getNoticePage', 'saveNotice', 'updateNotice', 'deleteNotice', 'deleteBatch'],
           '@/api/index': ['getStatistics1', 'getStatistics2', 'getStatistics3'],
-          '@/api/role': ['getRoleList', 'getRoleInfo', 'createRole', 'updateRole', 'deleteRole', 'setRoleMenus'],
+          '@/api/role': [
+            'getRoleList',
+            'getRoleInfo',
+            'createRole',
+            'updateRole',
+            'deleteRole',
+            'setRoleMenus',
+            'getAllRoleList'
+          ],
           '@/hooks/useAuth': ['useAccountLogin', 'useLogout'],
           '@/hooks/useAdmin': ['usePassword'],
           '@/hooks/useBreadCrumbs': ['useBreadCrumbs'],

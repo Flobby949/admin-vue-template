@@ -147,6 +147,11 @@
         <el-form-item label="手机号" prop="mobile">
           <el-input v-model="form.mobile" placeholder="请输入手机号"></el-input>
         </el-form-item>
+        <el-form-item label="角色" prop="roleIdList">
+          <el-select v-model="form.roleIdList" multiple placeholder="选择角色" @change="showRole">
+            <el-option v-for="item in roleListOptions" :key="item.id" :label="item.name" :value="item.id" />
+          </el-select>
+        </el-form-item>
       </el-form>
     </FormDrawer>
   </el-card>
@@ -186,13 +191,15 @@ const {
     avatar: '',
     gender: null,
     email: '',
-    mobile: ''
+    mobile: '',
+    roleIdList: []
   },
   rules: {},
   getData,
   update: updateInfo,
   create: saveInfo,
   batchDelete: deleteUser,
+  getCurrentInfo: getInfoById,
   loading
 })
 
@@ -291,4 +298,15 @@ const genderOptions = [
     value: 2
   }
 ]
+
+const roleListOptions = ref([])
+onMounted(() => {
+  getAllRoleList().then(res => {
+    roleListOptions.value = res
+  })
+})
+
+const showRole = val => {
+  console.log(val)
+}
 </script>

@@ -130,8 +130,11 @@ export function useInitForm(opt = {}) {
   }
 
   // 编辑
-  const handleEdit = row => {
+  const handleEdit = async row => {
     editId.value = row.id
+    if (opt.getCurrentInfo) {
+      row = await opt.getCurrentInfo(row.id)
+    }
     resetForm(row)
     formDrawerRef.value.open()
   }

@@ -48,6 +48,7 @@ declare global {
   const exportUser: typeof import('@/api/user')['exportUser']
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const getActivePinia: typeof import('pinia')['getActivePinia']
+  const getAllRoleList: typeof import('@/api/role')['getAllRoleList']
   const getAuthority: typeof import('@/api/menu')['getAuthority']
   const getCaptcha: typeof import('@/api/auth')['getCaptcha']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
