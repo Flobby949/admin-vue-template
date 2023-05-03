@@ -2,7 +2,7 @@
   <el-card shadow="never" class="border-0">
     <!-- 新建/刷新 -->
     <div class="f-between mb-4">
-      <div>
+      <!-- <div>
         <input
           type="text"
           v-model="params.username"
@@ -20,7 +20,7 @@
         </el-select>
 
         <el-button class="px-8 py-4 bg-sky-500 text-light-50 rounded-full ml-2" @click="getData">搜索</el-button>
-      </div>
+      </div> -->
       <el-tooltip content="刷新数据" placement="top" effect="dark">
         <el-button text @click="getData">
           <IEpRefresh />
@@ -73,20 +73,20 @@
 </template>
 
 <script setup>
-const { tableData, loading, currentPage, total, limit, getData, params } = useInitTable({
+const { tableData, loading, currentPage, total, limit, getData } = useInitTable({
   getList: getLogs
 })
 
-const options = [
-  {
-    value: 0,
-    label: '失败'
-  },
-  {
-    value: 1,
-    label: '成功'
-  }
-]
+// const options = [
+//   {
+//     value: 0,
+//     label: '失败'
+//   },
+//   {
+//     value: 1,
+//     label: '成功'
+//   }
+// ]
 </script>
 
 <style scoped></style>

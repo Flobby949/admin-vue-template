@@ -79,6 +79,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SideMenu: typeof import('./layout/components/SideMenu.vue')['default']
     TopNav: typeof import('./layout/components/TopNav.vue')['default']
+    WangEditor: typeof import('./components/WangEditor.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

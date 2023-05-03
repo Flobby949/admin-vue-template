@@ -13,6 +13,7 @@ import User from '@/views/user/index.vue'
 import Notice from '@/views/notice/index.vue'
 // import Docs from '@/views/docs/index.vue'
 import Logs from '@/views/log/index.vue'
+import Edit from '@/views/edit/index.vue'
 
 const routes = [
   {
@@ -119,6 +120,14 @@ const asyncRoutes = [
     component: Logs,
     meta: {
       title: '登录日志'
+    }
+  },
+  {
+    path: '/edit/index',
+    name: 'edit',
+    component: Edit,
+    meta: {
+      title: '富文本'
     }
   }
 ]

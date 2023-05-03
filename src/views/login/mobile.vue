@@ -25,16 +25,15 @@ const { form, formRef, rules, onSubmit } = useMobileLogin()
 
 // 发送短信验证码
 const handleSendCode = () => {
-  timerHandler()
-
-  // sendCode(form.mobile).then(() => {
-  // })
+  sendCode(form.mobile).then(() => {
+    timerHandler()
+  })
 }
 
 // 短信计时器
 const sms = reactive({
   disabled: false,
-  total: 15,
+  total: 60,
   count: 0
 })
 

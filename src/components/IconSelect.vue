@@ -3,7 +3,7 @@
     <el-icon :size="20" v-if="modelValue" class="mr-2">
       <component :is="modelValue" />
     </el-icon>
-    <el-select :modelValue="modelValue" placeholder="请选择图标" @change="handleChange">
+    <el-select :modelValue="modelValue" placeholder="请选择图标" @change="handleChange" filterable>
       <el-option :label="item" :value="item" v-for="item in icons" :key="item">
         <div class="f-between">
           <el-icon>
