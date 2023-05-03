@@ -132,7 +132,9 @@
           <el-input v-model="form.realName" placeholder="请输入姓名"></el-input>
         </el-form-item>
         <el-form-item label="头像" prop="avatar">
-          <el-avatar :src="form.avatar"></el-avatar>
+          <el-upload :action="uploadUserAvatarUrl" :on-success="avatarUploadSuccess" :show-file-list="false">
+            <el-avatar :src="form.avatar"></el-avatar>
+          </el-upload>
         </el-form-item>
         <el-form-item label="性别" prop="gender">
           <el-radio-group v-model="form.gender">
@@ -231,6 +233,7 @@ const exportData = fileName => {
 }
 
 const uploadUserExcelUrl = import.meta.env.VITE_API_URL + '/sys/user/import?accessToken=' + getToken()
+const uploadUserAvatarUrl = import.meta.env.VITE_API_URL + '/sys/file/upload?accessToken=' + getToken()
 
 const handleSuccess = () => {
   ElMessage.success({
@@ -240,6 +243,10 @@ const handleSuccess = () => {
       getData()
     }
   })
+}
+
+const avatarUploadSuccess = res => {
+  form.avatar = res.data.url
 }
 
 const handleStatusChange = (status, row) => {
